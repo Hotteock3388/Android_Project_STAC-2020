@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Test.iml" filepath="$PROJECT_DIR$/../Test.iml" group="Test" />
+      <module fileurl="file://$PROJECT_DIR$/../app/app.iml" filepath="$PROJECT_DIR$/../app/app.iml" group="Test/app" />
+      <module fileurl="file://$PROJECT_DIR$/copy_ultrapager.iml" filepath="$PROJECT_DIR$/copy_ultrapager.iml" group="Test/copy_ultrapager" />
+      <module fileurl="file://$PROJECT_DIR$/../makeself_fragment/makeself_fragment.iml" filepath="$PROJECT_DIR$/../makeself_fragment/makeself_fragment.iml" group="Test/makeself_fragment" />
+      <module fileurl="file://$PROJECT_DIR$/../nakseozang/nakseozang.iml" filepath="$PROJECT_DIR$/../nakseozang/nakseozang.iml" group="Test/nakseozang" />
+      <module fileurl="file://$PROJECT_DIR$/../newtry/newtry.iml" filepath="$PROJECT_DIR$/../newtry/newtry.iml" group="Test/newtry" />
+      <module fileurl="file://$PROJECT_DIR$/../no_fucking_fragment/no_fucking_fragment.iml" filepath="$PROJECT_DIR$/../no_fucking_fragment/no_fucking_fragment.iml" group="Test/no_fucking_fragment" />
+      <module fileurl="file://$PROJECT_DIR$/../nosetting/nosetting.iml" filepath="$PROJECT_DIR$/../nosetting/nosetting.iml" group="Test/nosetting" />
+      <module fileurl="file://$PROJECT_DIR$/../test_ultrapager/test_ultrapager.iml" filepath="$PROJECT_DIR$/../test_ultrapager/test_ultrapager.iml" group="Test/test_ultrapager" />
+    </modules>
+  </component>
+</project>

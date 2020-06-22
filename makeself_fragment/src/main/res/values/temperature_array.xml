@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="온도선택">
+        "44도(운동 후 피로할때)",
+        "41도(저혈압 / 다이어트)",
+        "38도(평범함)",
+        "25도(시원함)",
+        "15도(차가움)",
+    </string-array>
+
+
+</resources>

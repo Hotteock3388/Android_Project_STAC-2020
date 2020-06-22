@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Test.iml" filepath="$PROJECT_DIR$/../Test.iml" group="Test" />
+      <module fileurl="file://$PROJECT_DIR$/../app/app.iml" filepath="$PROJECT_DIR$/../app/app.iml" group="Test/app" />
+      <module fileurl="file://$PROJECT_DIR$/../makeself_fragment/makeself_fragment.iml" filepath="$PROJECT_DIR$/../makeself_fragment/makeself_fragment.iml" group="Test/makeself_fragment" />
+      <module fileurl="file://$PROJECT_DIR$/nosetting.iml" filepath="$PROJECT_DIR$/nosetting.iml" group="Test/nosetting" />
+    </modules>
+  </component>
+</project>

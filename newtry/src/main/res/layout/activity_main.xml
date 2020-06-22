@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_Reserve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:text="예약하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_showReserveStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="예약 현황 보기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="140dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_showReserveStatus"
+        app:layout_constraintVertical_bias="1.0"
+        tools:context=".MainActivity">
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            app:menu_colorNormal="@color/colorMainBlue">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_showPreviousSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="160dp"
+                android:src="@drawable/ic_alarm_24dp"
+                android:visibility="invisible"
+                app:backgroundTint="#ffffff"
+                app:elevation="6dp"
+                app:fab_colorNormal="@color/colorWhite"
+                app:fab_label="최근 설정 불러오기" />
+
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab_newReserve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="90dp"
+                android:src="@drawable/ic_alarm_24dp"
+                android:visibility="invisible"
+                app:backgroundTint="#ffffff"
+                app:elevation="6dp"
+                app:fab_colorNormal="@color/colorWhite"
+                app:fab_label="새로 예약하기" />
+
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

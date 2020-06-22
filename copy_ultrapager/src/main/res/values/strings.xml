@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Test_UltraPager</string>
+    <string name="title_activity_main">UltraViewPager</string>
+    <string-array name="indicator_style">
+        <item>None</item>
+        <item>Circle</item>
+        <item>Icon</item>
+    </string-array>
+    <string-array name="indicator_gravity_hor">
+        <item>Left</item>
+        <item>Right</item>
+        <item>Center</item>
+    </string-array>
+    <string-array name="indicator_gravity_ver">
+        <item>Top</item>
+        <item>Bottom</item>
+        <item>Center</item>
+    </string-array>
+</resources>
