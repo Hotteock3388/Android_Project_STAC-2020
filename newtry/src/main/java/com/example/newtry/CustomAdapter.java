@@ -1,11 +1,14 @@
 package com.example.newtry;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -117,16 +120,17 @@ class CustomAdapter extends BaseAdapter {
             }
             else{
                 convertView.findViewById(R.id.text_endOfWeeks).setVisibility(View.GONE);
-
                 convertView.findViewById(R.id.text_duringWeeks).setVisibility(View.GONE);
+
                 for(int i = 0; i < 7; i++){
                     TextView textView_Days = convertView.findViewById(textIds_Days[i]);
                     textView_Days.setVisibility(View.VISIBLE);
                     if(days[i]){
                         textView_Days.setText(text_Days[i]);
-                        textView_Days.setTextSize(20);
+                        textView_Days.setTextColor(ContextCompat.getColor(convertView.getContext().getApplicationContext(), R.color.colorBlack));
                     }else{
                         textView_Days.setHint(text_Days[i]);
+                        textView_Days.setTextColor(ContextCompat.getColor(convertView.getContext().getApplicationContext(), R.color.colorAppBackgroundGray));
                     }
                 }
             }
@@ -184,9 +188,9 @@ class CustomAdapter extends BaseAdapter {
         //입욕제
         TextView text_Prepar = convertView.findViewById(R.id.text_Preapr);
         if(prepar)
-            text_Prepar.setText("입욕제");
+            text_Prepar.setTextColor(ContextCompat.getColor(convertView.getContext().getApplicationContext(), R.color.colorBlack));
         else
-            text_Prepar.setHint("입욕제");
+            text_Prepar.setTextColor(ContextCompat.getColor(convertView.getContext().getApplicationContext(), R.color.colorButtonGray));
 
 
         //반환할 View 객체 설정

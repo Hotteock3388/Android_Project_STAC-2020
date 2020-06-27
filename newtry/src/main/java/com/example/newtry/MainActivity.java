@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> temperList = getPreviousSettingDatasArrayList("temper");
     ArrayList<String> preparList = getPreviousSettingDatasArrayList("prepar");
 
-
     Boolean[] isDayOfWeek = new Boolean[MAX_SIZE];
     Boolean[][] day = new Boolean[MAX_SIZE][7];
     String[] date = new String[MAX_SIZE];
@@ -62,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             setDatasStr("Count", "0", true);
         }
         setDatasStr("ReserveDataList", "", true);
+        setDatasStr("History_Reserve", "", true);
 
         getReserveDataList();
 
@@ -229,16 +229,8 @@ public class MainActivity extends AppCompatActivity {
 
                     Temp = 0;
                     break;
-
             }
-
-
         }
-
-
-
-
-
     }
 
     public String getDatasStr(String FileName) {
@@ -275,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, NewReserveActivity.class);
+                intent.putExtra("Data", "");
                 startActivity(intent);
                 overridePendingTransition(R.anim.rightin_activity,R.anim.not_move_activity);
             }

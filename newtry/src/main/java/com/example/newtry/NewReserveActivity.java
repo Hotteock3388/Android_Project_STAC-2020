@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,9 +50,12 @@ public class NewReserveActivity extends AppCompatActivity {
     TextView textView_TimeCheck;
     Button btnCheck;
 
+    int dpYear = 0;
+    int dpMonth = 0;
+    int dpDay = 0;
 
     String tempYear;
-    String tempMonth= "";
+    String tempMonth = "";
     String tempDay = "";
 
     String saveDataString = "";
@@ -83,20 +87,109 @@ public class NewReserveActivity extends AppCompatActivity {
 
         setText_leftTime();
 
-        //resetCount();
-        //updateCountData();
-
         setBtnDays();
 
         setCroller();
 
         setTimePicker();
 
-        //checkPrepar();
+        {
+            Intent intent = getIntent();
+            String reserveData = intent.getStringExtra("Data");
+            if (reserveData.length() == 0)
+                ;
 
 
+            else {
+                int temp = 0;
+                for(int i = 0; i < reserveData.length(); i++){
 
+                    if(reserveData.charAt(i) == ','){
+                        temp++;
+                        continue;
+                    }
+                    switch (temp)
+                    {
+                        case 0: //isDayOfWeek (요일반복인지 날짜인지)
+                            if(reserveData.charAt(i) == 'O') {
+                                save_IsDayOfWeek = true;
+                            }
+                            else {
+                                save_IsDayOfWeek = false;
+                            }
+                            break;
 
+                        case 1:
+                            if(save_IsDayOfWeek) {    //요일 반복
+                                for (int j = 0; j < 7; j++) {
+                                    if (reserveData.charAt(i + j) == 'O') {
+                                        isDaySelected[j] = true;
+                                        setBtnDays(j, true);
+                                    }
+                                    else if (reserveData.charAt(i + j) == 'X') {
+                                        isDaySelected[j] = false;
+                                        setBtnDays(j, false);
+                                    }
+                                }
+                                i += 6;
+                            }
+                            else{          // 특정 날짜
+                                //년도
+                                String year = Character.toString(reserveData.charAt(i++)) + Character.toString(reserveData.charAt(i++))
+                                        + Character.toString(reserveData.charAt(i++)) + Character.toString(reserveData.charAt(i++));
+                                //월
+                                String month = Character.toString(reserveData.charAt(i++)) + Character.toString(reserveData.charAt(i++));
+                                //일
+                                String day = Character.toString(reserveData.charAt(i++)) + Character.toString(reserveData.charAt(i));
+                                dpYear = Integer.parseInt(year);
+                                dpMonth = Integer.parseInt(month);
+                                dpDay = Integer.parseInt(day);
+                            }
+                            break;
+
+                        case 2:
+                            String hour = Character.toString(reserveData.charAt(i++)) + Character.toString(reserveData.charAt(i++));
+                            String minute = Character.toString(reserveData.charAt(i++)) + Character.toString(reserveData.charAt(i));
+                            timePicker.setHour(Integer.parseInt(hour));
+                            timePicker.setMinute(Integer.parseInt(minute));
+                            break;
+
+                        case 3:
+                            int temperature = Integer.parseInt(Character.toString(reserveData.charAt(i++)) + Character.toString(reserveData.charAt(i)));
+                            croller.setProgress(temperature - 13);
+
+                            if(temperature == 14) croller.setBackCircleColor(Color.parseColor("#FF3F51B5"));
+                            else if (temperature >=15)  croller.setBackCircleColor(Color.parseColor("#FF2196F3"));
+                            else if (temperature >=25)  croller.setBackCircleColor(Color.parseColor("#FFA2CBEC"));
+                            else if (temperature >=38)  croller.setBackCircleColor(Color.parseColor("#FFA2CBEC"));
+                            else if (temperature >=41)  croller.setBackCircleColor(Color.parseColor("#FFF15321"));
+                            else if (temperature >=44)  croller.setBackCircleColor(Color.parseColor("#FFF44336"));
+                            else if (temperature >=45) croller.setBackCircleColor(Color.parseColor("#FFFF0000"));
+
+//                            if(temperature == 14) selectTemper.setText("가장 낮은 온도");
+//                            else if (temperature == 45) selectTemper.setText("가장 높은 온도");
+//                            else if (temperature == 44) selectTemper.setText("운동 후 근육풀기 \n44ºC");
+//                            else if (temperature == 41) selectTemper.setText("저혈압 / 다이어트 \n41ºC");
+//                            else if (temperature == 38) selectTemper.setText("따뜻한 온도\n38ºC");
+//                            else if (temperature == 25) selectTemper.setText("시원한 온도\n25ºC");
+//                            else if (temperature == 15) selectTemper.setText("차가운 온도 \n15ºC");
+//                            else selectTemper.setText(Integer.toString(temperature) + "ºC");
+
+                            break;
+
+                        case 4:
+                            if(reserveData.charAt(i) == 'O')
+                                sw_Prepar.setChecked(true);
+                            else
+                                sw_Prepar.setChecked(false);
+                            temperature = 0;
+                            break;
+                    }
+                }
+                if(!save_IsDayOfWeek)
+                    createDatePicker();
+            }
+        }
 
 //        btnCheck.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -184,8 +277,6 @@ public class NewReserveActivity extends AppCompatActivity {
         }
 
 
-
-
         //Boolean 요일 / 날짜 , String 날짜 / (Boolean[7] 요일) , String 시간 , String 온도 , Boolean 입욕제
 
         Count = updateCountData();
@@ -207,6 +298,7 @@ public class NewReserveActivity extends AppCompatActivity {
 
 
         setDatasStr("ReserveDataList", saveDataString, true);
+        setDatasStr("History_Reserve", saveDataString, true);
         textView_TimeCheck.setText(saveDataString);
 
 
@@ -317,10 +409,11 @@ public class NewReserveActivity extends AppCompatActivity {
         LayoutInflater inflater = getLayoutInflater();
         final View myView = inflater.inflate(R.layout.alertdatepickerform, null);
         datePicker = myView.findViewById(R.id.formDatePicker);
+        if(dpYear != 0){
+            datePicker.updateDate(dpYear, dpMonth, dpDay);
+        }
         reserveDay = "";
 
-        //myView.
-        //datePicker.get
         AlertDialog.Builder dlg = new AlertDialog.Builder(NewReserveActivity.this);
         dlg.setCancelable(false)
                 .setView(myView)
@@ -570,6 +663,19 @@ public void btnDaysChange(int clickedDay){
         isDaySelected[clickedDay] = true;
     }
     setText_leftTime();
+}
+
+public void setBtnDays(int index, boolean isChecked){
+        if(isChecked == true){
+            btnDays[index].setBackgroundResource(R.drawable.btn_selected_day);
+            btnDays[index].setTextColor(getResources().getColor(R.color.colorBlack));
+            isDaySelected[index] = true;
+        }
+        else{
+            btnDays[index].setBackgroundResource(R.drawable.btn_unselected_day);
+            btnDays[index].setTextColor(getResources().getColor(R.color.colorButtonGray));
+            isDaySelected[index] = false;
+        }
 }
 
     @Override

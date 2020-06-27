@@ -125,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="3dp"
+                android:textColor="@color/colorBlack"
                 android:text="주중"
                 android:visibility="gone"
                 android:textSize="10dp" />
@@ -134,6 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlack"
                 android:text="주말"
                 android:visibility="gone"
                 android:layout_marginHorizontal="3dp"
@@ -144,6 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlack"
                 android:layout_marginHorizontal="3dp"
                 android:textSize="10dp" />
 
@@ -168,6 +171,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:text="입욕제"
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toEndOf="@+id/text_Temperature"
             app:layout_constraintTop_toTopOf="parent" />
