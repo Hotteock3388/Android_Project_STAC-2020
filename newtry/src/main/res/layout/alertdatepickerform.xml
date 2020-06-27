@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <DatePicker
-        android:id="@+id/datePicker"
-        style="@style/DatePickerTheme"
-        android:calendarViewShown="false"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+        <DatePicker
+            android:id="@+id/formDatePicker"
+            style="@style/DatePickerTheme"
+            android:calendarViewShown="false"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
 </LinearLayout>

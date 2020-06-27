@@ -31,13 +31,15 @@ public class OptionActivity extends AppCompatActivity {
 
         btnMinus = findViewById(R.id.btnMinus);
         btnPlus = findViewById(R.id.btnPlus);
-        croller = findViewById(R.id.croller);
+
         selectTemper = findViewById(R.id.select_Temper);
         navigation_addListener("Option");
         //seekBar.getResources().
 
         Drawable d = getResources().getDrawable(R.drawable.point);
 
+
+        croller = findViewById(R.id.croller);
         croller.setOnProgressChangedListener(new Croller.onProgressChangedListener() {
             @Override
             public void onProgressChanged(int progress) {

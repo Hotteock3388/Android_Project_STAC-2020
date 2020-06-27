@@ -53,7 +53,13 @@ public class PreviousSettingsActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+    public void showPreviousSettings(){
+
+    }
+
 
     private ArrayList<String> getPreviousSettingDatasArrayList(String DataKey) {
         ArrayList<String> tempList = new ArrayList<String>();

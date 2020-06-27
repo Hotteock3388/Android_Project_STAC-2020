@@ -18,6 +18,7 @@
         <item name="colorAccent">@color/colorMainBlue</item>
     </style>
 
-
-    출처: https://karrel.tistory.com/9 [카렐님의 프로그래밍]
+    <style name="switchTheme" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/colorMainBlue</item>
+    </style>
 </resources>
